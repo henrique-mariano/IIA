@@ -33,3 +33,5 @@
 
 *.ppt
 *.pdf
+
+.vscode/
