@@ -9,7 +9,7 @@ void Tabuleiro::set_random_vector(){
 void Tabuleiro::Shuffle_random_vector(){
     this->set_seed();
 
-    shuffle(this->random_vector.begin(), this->random_vector.end(), default_random_engine(seed));
+    shuffle(this->random_vector.begin(), this->random_vector.end(), default_random_engine(this->seed));
 }
 
 void Tabuleiro::set_table(){
@@ -69,20 +69,19 @@ void Tabuleiro::Print_random_vector(){
     cout << endl;
 }
 
-bool Tabuleiro::Check_row_colunms(){
-    bool resp = true;
+void Tabuleiro::Print_queens(){
+    cout << "\nRainhas: ";
 
-    for(int i = 0; i < this->linhas.size(); i++){
-        if(this->linhas[i] != 0){
-            resp = false;
-        }
-
-        if(this->colunas[i] != 0){
-            resp = false;
-        }
+    for(auto i : this->rainhas){
+        cout << "(" << i.first << ", " << i.second << ") -> ";
     }
+}
 
-    return resp;
+bool Tabuleiro::Check_queen_row_column(){
+    if(this->linhas[this->linha] == 1 || this->colunas[this->coluna] == 1)
+        return true;
+    
+    return false;
 }
 
 bool Tabuleiro::Check_queen_diagonals(){
@@ -105,32 +104,25 @@ void Tabuleiro::set_queen(){
     this->tab[this->linha][this->coluna] = 1;
 }
 
-bool Tabuleiro::Queen_insertion(){
+bool Tabuleiro::Queen_insertion_random(){
 
     for(int i = 0; i < TAB_AREA; i++){
         this->linha = this->tabela_posicao[this->random_vector[i]].first;
         this->coluna = this->tabela_posicao[this->random_vector[i]].second;
 
-        if(this->linhas[this->linha] == 1 || this->colunas[this->coluna] == 1){ // verifica se linha == x e se coluna == y
+        if(i == 0)
+            this->set_queen();
+
+        if(this->Check_queen_row_column()) // verifica se linha == x e se coluna == y
             continue;
-        }
 
-        if(this->Check_row_colunms()){
+        if(this->Check_queen_diagonals()) //verifica se ha alguma rainha na diagonal
             this->set_queen();
-        }
-
-        bool check = this->Check_queen_diagonals();
-
-        if(check){
-            this->set_queen();
-        }
 
         if(this->rainhas.size() == TAB_TAM){
-
-            for(auto i : this->rainhas){
-                cout << "(" << i.first << ", " << i.second << ") -> ";
-            }
+            this->Print_queens();
             cout << endl << endl;
+            cout << "Tabuleiro: " << endl;
             this->Print_tab();
             return false;
         }
@@ -148,12 +140,70 @@ bool Tabuleiro::Queen_insertion(){
     return true;
 }
 
-void Tabuleiro::Eight_queen_game(){
+bool Tabuleiro::Queen_insertion_left(){
+    vector <int> pos; //[0 .. 7] randomizado
+    pos.clear();
+    this->colunas.clear();
+    this->linhas.clear();
+    this->set_linhas();
+    this->set_colunas();
+    this->rainhas.clear();
+    this->linha = 0;
+    this->coluna = 0;
+    int max = 0;
+    bool check;
+
+    for(int k = 0; k < TAB_TAM; k++){
+        pos.push_back(k);
+    }
+
+    this->set_seed();
+    shuffle(pos.begin(), pos.end(), default_random_engine(this->seed));
+    this->linha = pos[0];
+    this->set_queen();
+
+    for(int i = 1; i < TAB_TAM; i++){
+        this->coluna = i;
+        
+        for(int j = 0; j < TAB_AREA; j++){
+            this->set_seed();
+            shuffle(pos.begin(), pos.end(), default_random_engine(this->seed));
+            this->linha = pos[4];
+
+            if(this->Check_queen_diagonals() && this->linhas[this->linha] == 0){
+                this->set_queen();
+                break;
+            }
+        }
+    }
+
+    if(this->rainhas.size() == TAB_TAM){
+        this->Print_queens();
+        cout << endl << endl;
+        cout << "Tabuleiro: " << endl;
+        this->Print_tab();
+        return false;
+    }
+
+    this->Print_tab();
+    return true;
+}
+
+void Tabuleiro::Eight_queen_game_random(){
     bool check;
     do {
         this->set_table();
-        check = this->Queen_insertion();
+        check = this->Queen_insertion_random();
 
     } while(check);
 
+}
+
+void Tabuleiro::Eight_queen_game_left(){
+    bool check;
+    do {
+        this->set_table();
+        check = this->Queen_insertion_left();
+
+    } while(check);
 }

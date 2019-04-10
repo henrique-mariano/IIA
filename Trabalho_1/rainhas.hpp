@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <chrono>
 
-#define TAB_TAM 8
+#define TAB_TAM 8 //escolha o tamanho do tabuleiro que desejar
 #define TAB_AREA 64
 
 using namespace std;
@@ -48,11 +48,13 @@ class Tabuleiro{
 
         void set_queen();
 
-        bool Check_row_colunms();
-
         bool Check_queen_diagonals();
 
-        bool Queen_insertion();
+        bool Check_queen_row_column();
+
+        bool Queen_insertion_random();
+
+        bool Queen_insertion_left();
 
     public:
 
@@ -60,7 +62,11 @@ class Tabuleiro{
 
         void Print_random_vector();
 
-        void Eight_queen_game();
+        void Print_queens();
+
+        void Eight_queen_game_random();
+
+        void Eight_queen_game_left();
 
 
         Tabuleiro(){
