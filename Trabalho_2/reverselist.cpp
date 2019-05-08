@@ -1,6 +1,5 @@
 #include <iostream>
 #include <list>
-#include <stdlib.h>
 
 using namespace std;
 
@@ -10,7 +9,10 @@ void print_list(list<int>&);
 
 int main(void) {
     list<int> lista = {1,2,3,4,5};
+    cout << "Lista antes do reverse:" << endl;
+    print_list(lista);
     reverse_list(lista);
+    cout << "Lista apos o reverse:" << endl;
     print_list(lista);
     return 0;
 }
@@ -38,8 +40,9 @@ void swap_list(list<int>& lista, size_t i, size_t j) {
 }
 
 void print_list(list<int>& lista) {
-    cout << endl << "Lista:";
+    cout << "Lista:";
     for(auto i = lista.begin(); i != lista.end(); ++i){
         cout << " " << *i;
     }
+    cout << endl;
 }
