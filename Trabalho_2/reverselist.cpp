@@ -1,20 +1,4 @@
-#include <iostream>
-#include <list>
-#include <vector>
-#include <algorithm>
-#include <chrono>
-
-#define N 100000
-using namespace std;
-using namespace std::chrono;
-
-void swap_list(list<int>&, size_t i, size_t j);
-void reverse_list(list<int>&);
-void reverse_vector(vector<int>&);
-void reverse_array(unsigned int*);
-void print_list(list<int>&);
-void print_vector(vector<int>&);
-void print_array(unsigned int *arr);
+#include "reverselist.hpp"
 
 int main(void) {
     list<int> lista;
@@ -29,19 +13,16 @@ int main(void) {
     }
     // cout << "Lista antes do reverse:" << endl;
     // print_list(lista);
-    auto start = high_resolution_clock::now();
     // reverse_list(lista);
     // lista.reverse();
     //print_vector(vec);
     // reverse_vector(vec);
-    reverse_array(arr);
-    auto stop = high_resolution_clock::now();
-    cout << "Lista apos o reverse:" << endl;
+    // reverse_array(arr);
+    // cout << "Lista apos o reverse:" << endl;
     // print_vector(vec);
     // print_list(lista);
     // print_array(arr);
-    auto duration = duration_cast<microseconds>(stop - start);
-    cout << "Time taken by function: " << duration.count() << " microseconds" << endl;
+    run_list(reverse_list, lista);
     free(arr);
     return 0;
 }
@@ -105,4 +86,14 @@ void reverse_array(unsigned int *arr) {
 void print_array(unsigned int *arr) {
     unsigned int i;
     for(i = 0; i < N; i++) printf("%3d%s", arr[i], i % 20 == 19 ? "\n" : " ");
+}
+
+void run_list(void (* func)(list<int>&), list<int> &lista) {
+    auto start = high_resolution_clock::now();
+    func(lista);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "Reversao de lista:" << endl;
+    cout << "Tempo levado pela funcao: " << duration.count() << " microsegundos" << endl;
+    return;
 }
