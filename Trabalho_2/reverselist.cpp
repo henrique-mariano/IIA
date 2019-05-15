@@ -64,6 +64,11 @@ void print_vector(vector<int>& vec) {
     cout << endl;
 }
 
+void print_array(unsigned int *arr) {
+    unsigned int i;
+    for(i = 0; i < N; i++) printf("%3d%s", arr[i], i % 20 == 19 ? "\n" : " ");
+}
+
 void reverse_array(unsigned int *arr) {
     unsigned int i;
     unsigned int j;
@@ -72,11 +77,6 @@ void reverse_array(unsigned int *arr) {
 		*(arr + N - 1 - i) = *(arr + i) - *(arr + N - 1 - i);
 		*(arr + i) -= *(arr + N - 1 - i);
 	}
-}
-
-void print_array(unsigned int *arr) {
-    unsigned int i;
-    for(i = 0; i < N; i++) printf("%3d%s", arr[i], i % 20 == 19 ? "\n" : " ");
 }
 
 void run_list(void (* func)(list<int>&), list<int> &lista) {
