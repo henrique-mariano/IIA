@@ -11,18 +11,9 @@ int main(void) {
         vec.push_back(k);
         lista.push_back(k);
     }
-    // cout << "Lista antes do reverse:" << endl;
-    // print_list(lista);
-    // reverse_list(lista);
-    // lista.reverse();
-    //print_vector(vec);
-    // reverse_vector(vec);
-    // reverse_array(arr);
-    // cout << "Lista apos o reverse:" << endl;
-    // print_vector(vec);
-    // print_list(lista);
-    // print_array(arr);
     run_list(reverse_list, lista);
+    run_vector(reverse_vector, vec);
+    run_array(reverse_array, arr);
     free(arr);
     return 0;
 }
@@ -92,8 +83,28 @@ void run_list(void (* func)(list<int>&), list<int> &lista) {
     auto start = high_resolution_clock::now();
     func(lista);
     auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
+    auto duration = duration_cast<nanoseconds>(stop - start);
     cout << "Reversao de lista:" << endl;
-    cout << "Tempo levado pela funcao: " << duration.count() << " microsegundos" << endl;
+    cout << "Tempo levado pela funcao: " << duration.count() << " nanosegundos" << endl;
+    return;
+}
+
+void run_vector(void (*func)(vector<int>&), vector<int> &vec) {
+    auto start = high_resolution_clock::now();
+    func(vec);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(stop - start);
+    cout << "Reversao de vector:" << endl;
+    cout << "Tempo levado pela funcao: " << duration.count() << " nanosegundos" << endl;
+    return;
+}
+
+void run_array(void (*func)(unsigned int*), unsigned int *arr) {
+    auto start = high_resolution_clock::now();
+    func(arr);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(stop - start);
+    cout << "Reversao de array:" << endl;
+    cout << "Tempo levado pela funcao: " << duration.count() << " nanosegundos" << endl;
     return;
 }

@@ -7,7 +7,7 @@
 #include <algorithm>
 #include <chrono>
 
-#define N 1000
+#define N 10000
 using namespace std;
 using namespace std::chrono;
 
@@ -20,5 +20,7 @@ void print_vector(vector<int>&);
 void print_array(unsigned int *arr);
 void reverse_list_recursive(list<int>&);
 void run_list(void (* func)(list<int>&), list<int> &);
+void run_vector(void (*func)(vector<int>&), vector<int> &);
+void run_array(void (*func)(unsigned int*), unsigned int *arr);
 
 #endif
