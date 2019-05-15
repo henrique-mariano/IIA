@@ -1,7 +1,3 @@
-%Soma
-soma([],0).
-soma([H|T], S) :- soma(T, S1), S is S1 + H.
-
 %Concatenação
 conc([], L, L).
 conc([X|L1], L2, [X|L3]) :- conc(L1,L2,L3).
