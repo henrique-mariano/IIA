@@ -12,6 +12,11 @@ using namespace std::chrono;
 
 extern const int N;
 
+/*
+As funções com o prefixo run recebem uma função e executam passando seus argumentos
+e assim avaliando seu tempo de execução.
+*/
+
 void run_list(void (* func)(list<int>&), list<int> &);
 void run_list_recursive(void (* func)(list<int>&, list<int>&), list<int> &lista, list<int> &lista_resp);
 void run_list_rec_sum(void (*func)(list<int>&, int&), list<int>&, int&);

@@ -16,8 +16,6 @@ int main(void) {
     run_vector(reverse_vector, vec);
     run_array(reverse_array, arr);
     run_list_recursive(reverse_list_recursive, lista_rec, ans);
-
-    // print_list(ans);
     
     free(arr);
     return 0;
@@ -30,7 +28,6 @@ void reverse_list(list<int>& lista) {
     return;
 }
 
-//Swap de dois elementos de uma lista
 void swap_list(list<int>& lista, size_t i, size_t j) {
     list<int> :: iterator it;
     list<int> :: iterator jt;
