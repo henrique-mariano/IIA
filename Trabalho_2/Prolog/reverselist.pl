@@ -10,3 +10,7 @@ invertern2([X|Y], Z) :- invertern2(Y, Y1), conc(Y1,[X],Z).
 invertern(X, Y) :- aux([], X, Y).
 aux(L,[],L).
 aux(L,[X|Y], Z) :- aux([X|L], Y, Z).
+
+inverte_1_a_100 :- numlist(1, 100, L), statistics(runtime, [TimeSinceStart | [TimeSinceLastCall]]), 
+invertern(L, Y1), statistics(runtime, [NewTimeSinceStart | [ExecutionTime]]), 
+write('A Execucao levou '), write(ExecutionTime), write(' ms.'), nl.
