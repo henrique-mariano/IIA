@@ -10,6 +10,8 @@
 using namespace std;
 using namespace std::chrono;
 
+typedef long long unsigned int llu;
+
 extern const unsigned int N;
 
 /*
@@ -18,11 +20,11 @@ e assim avaliando seu tempo de execução.
 */
 
 void run_list(void (* func)(list<int>&), list<int> &);
-void run_list_recursive(void (* func)(list<int>&, list<int>&), list<int> &lista, list<int> &lista_resp);
+void run_list_recursive(void (* func)(list<llu>&, list<llu>&), list<llu> &lista, list<llu> &lista_resp);
 void run_list_rec_sum(void (*func)(list<int>&, int&), list<int>&, int&);
 void run_list_sum(int (*func)(list<int>), list<int>);
 void run_vector(void (*func)(vector<int>&), vector<int> &);
-void run_vector_rec_sum(void (*func)(vector<int>&, int&), vector<int>&, int&);
+void run_list_rec_sum(void (*func)(list<llu>&, llu&), list<llu> &lista, llu &soma);
 void run_array(void (*func)(unsigned int*), unsigned int *arr);
 void print_list(list<int>&);
 void print_vector(vector<int>&);

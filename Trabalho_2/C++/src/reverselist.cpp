@@ -1,7 +1,8 @@
 #include "../include/reverselist.hpp"
 
 int main(void) {
-    list<int> lista, ans, lista_rec;
+    list<int> lista;
+    list<llu> ans, lista_rec;
     vector<int> vec(N);
     unsigned int *arr, i;
     arr = (unsigned int *) malloc(sizeof(unsigned int) * N);
@@ -12,9 +13,9 @@ int main(void) {
         lista.push_back(k);
         lista_rec.push_back(k);
     }
-    run_list(reverse_list, lista);
-    run_vector(reverse_vector, vec);
-    run_array(reverse_array, arr);
+    // run_list(reverse_list, lista);
+    // run_vector(reverse_vector, vec);
+    // run_array(reverse_array, arr);
     run_list_recursive(reverse_list_recursive, lista_rec, ans);
     
     free(arr);
@@ -60,7 +61,7 @@ void reverse_array(unsigned int *arr) {
 	}
 }
 
-void reverse_list_recursive(list<int> &lista, list<int> &lista_result) {
+void reverse_list_recursive(list<llu> &lista, list<llu> &lista_result) {
     if(lista.size() == 0)
         return;
 

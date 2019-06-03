@@ -3,17 +3,17 @@
 int main(void) {
 
     vector<int> v(N);
-    list<int> lista;
+    list<llu> lista;
     unsigned int *arr, i;
     arr = (unsigned int *) malloc(sizeof(unsigned int) * N);
 	for(i = 0; i < N; i++) arr[i] = i;
 
-    for(unsigned int i = 1; i < N; i++) {
+    for(llu i = 1; i < N; i++) {
         v.push_back(i);
         lista.push_back(i);
     }
 
-    int l_sum = 0;
+    llu l_sum = 0;
     //int vec_sum = 0;
     //int arr_sum = 0;
 
@@ -71,7 +71,7 @@ void vector_rec_sum(vector<int> &vec, int &soma) {
     vector_rec_sum(vec, soma);
 }
 
-void list_rec_sum(list<int> &lista, int &soma) {
+void list_rec_sum(list<llu> &lista, llu &soma) {
     if(lista.size() == 0)
         return;
 

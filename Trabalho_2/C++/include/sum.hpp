@@ -13,7 +13,7 @@ const unsigned int N = 100001;
 typedef long long unsigned int llu;
 
 int list_sum(list<int>);
-void list_rec_sum(list<int>&, int&);
+void list_rec_sum(list<llu>&, llu&);
 int vector_sum(vector<int>);
 void vector_rec_sum(vector<int> &vec, int &soma);
 int array_sum(unsigned int *arr);

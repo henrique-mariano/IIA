@@ -20,7 +20,7 @@ void run_list_sum(int (*func)(list<int>), list<int> lista) {
     return;
 }
 
-void run_list_recursive(void (* func)(list<int>&, list<int>&), list<int> &lista, list<int> &lista_resp) {
+void run_list_recursive(void (* func)(list<llu>&, list<llu>&), list<llu> &lista, list<llu> &lista_resp) {
     auto start = high_resolution_clock::now();
     func(lista, lista_resp);
     auto stop = high_resolution_clock::now();
@@ -30,7 +30,7 @@ void run_list_recursive(void (* func)(list<int>&, list<int>&), list<int> &lista,
     return;
 }
 
-void run_list_rec_sum(void (*func)(list<int>&, int&), list<int> &lista, int &soma) {
+void run_list_rec_sum(void (*func)(list<llu>&, llu&), list<llu> &lista, llu &soma) {
     auto start = high_resolution_clock::now();
     func(lista, soma);
     auto stop = high_resolution_clock::now();
