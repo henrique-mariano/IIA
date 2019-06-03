@@ -7,7 +7,7 @@ int main(void) {
     arr = (unsigned int *) malloc(sizeof(unsigned int) * N);
 	for(i = 0; i < N; i++) arr[i] = i;
 
-    for(size_t k = 1; k < N; k++) {
+    for(unsigned int k = 1; k < N; k++) {
         vec.push_back(k);
         lista.push_back(k);
         lista_rec.push_back(k);

@@ -12,7 +12,7 @@
 using namespace std;
 using namespace std::chrono;
 
-const int N = 10000;
+const unsigned int N = 10000;
 
 //Swap de dois elementos de uma lista
 void swap_list(list<int>&, size_t i, size_t j);

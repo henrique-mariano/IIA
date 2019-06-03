@@ -18,11 +18,14 @@ mae(esther, isadora).
 mae(esther, yuri).
 
 %Regras
-irmao(A,B) :- ((pai(P,A), pai(P,B));
+irmao(A,B) :- ((pai(P,A), pai(P,B)), A \== B;
                (mae(M,A), mae(M,B))), A \== B.
 
 tio(A,B) :- (pai(P,B), irmao(A,P));
             (mae(M,B), irmao(A,M)).
 
-avo(A,B) :- (pai(P,B), pai(A,P));
-            (mae(M,B), mae(A,M)).
+avo(A,N) :- (pai(A,P), pai(P,N));
+            (pai(A,P), mae(P,N)).
+
+avoh(A,N) :- (mae(A,M), mae(M,N));
+             (mae(A,M), pai(M,N)).

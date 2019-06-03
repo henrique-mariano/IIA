@@ -8,11 +8,14 @@
 
 using namespace std;
 
-const int N = 1001;
+const unsigned int N = 100001;
 
-void list_sum(list<int>&);
+typedef long long unsigned int llu;
+
+int list_sum(list<int>);
 void list_rec_sum(list<int>&, int&);
 int vector_sum(vector<int>);
 void vector_rec_sum(vector<int> &vec, int &soma);
-void array_sum(size_t *arr);
+int array_sum(unsigned int *arr);
+
 #endif
