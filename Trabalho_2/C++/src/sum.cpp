@@ -14,23 +14,20 @@ int main(void) {
     }
 
     llu l_sum = 0;
-    //int vec_sum = 0;
-    //int arr_sum = 0;
+    int vec_sum = 0;
+    int arr_sum = 0;
 
-    //arr_sum = array_sum(arr);
+    arr_sum = array_sum(arr);
 
-    //run_list_sum(list_sum, lista);
+    run_list_sum(list_sum, lista);
 
     run_list_rec_sum(list_rec_sum, lista, l_sum);
 
-    //run_vector_rec_sum(vector_rec_sum, v, vec_sum);
-
-
-    // print_vector(v);
+    run_vector_rec_sum(vector_rec_sum, v, vec_sum);
     
-    //cout << "Soma array: " << arr_sum << endl;
+    cout << "Soma array: " << arr_sum << endl;
 
-    //cout << "Soma vetor: " << vec_sum << endl;
+    cout << "Soma vetor: " << vec_sum << endl;
 
     cout << "Soma lista: " << l_sum << endl;
 
@@ -47,7 +44,7 @@ int vector_sum(vector<int> v) {
     return sum;
 }
 
-int list_sum(list<int> lista) {
+int list_sum(list<llu> lista) {
     int sum = 0;
     for(llu i = 0; i < lista.size(); i++) {
         sum += lista.front();

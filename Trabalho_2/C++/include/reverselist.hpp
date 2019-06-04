@@ -14,7 +14,8 @@ using namespace std::chrono;
 
 typedef long long unsigned int llu;
 
-const unsigned int N = 1000001;
+/*N que define o tamanho das estruturas de dados*/
+const unsigned int N = 10001;
 
 //Swap de dois elementos de uma lista
 void swap_list(list<int>&, size_t i, size_t j);

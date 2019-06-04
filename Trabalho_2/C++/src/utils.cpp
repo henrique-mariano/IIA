@@ -10,7 +10,7 @@ void run_list(void (* func)(list<int>&), list<int> &lista) {
     return;
 }
 
-void run_list_sum(int (*func)(list<int>), list<int> lista) {
+void run_list_sum(int (*func)(list<llu>), list<llu> lista) {
     auto start = high_resolution_clock::now();
     func(lista);
     auto stop = high_resolution_clock::now();

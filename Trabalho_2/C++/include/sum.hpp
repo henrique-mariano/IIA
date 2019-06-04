@@ -8,11 +8,12 @@
 
 using namespace std;
 
-const unsigned int N = 100001;
+/*N que define o tamanho das estruturas de dados*/
+const unsigned int N = 10001;
 
 typedef long long unsigned int llu;
 
-int list_sum(list<int>);
+int list_sum(list<llu>);
 void list_rec_sum(list<llu>&, llu&);
 int vector_sum(vector<int>);
 void vector_rec_sum(vector<int> &vec, int &soma);

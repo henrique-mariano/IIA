@@ -13,9 +13,10 @@ int main(void) {
         lista.push_back(k);
         lista_rec.push_back(k);
     }
-    // run_list(reverse_list, lista);
-    // run_vector(reverse_vector, vec);
-    // run_array(reverse_array, arr);
+    
+    run_list(reverse_list, lista);
+    run_vector(reverse_vector, vec);
+    run_array(reverse_array, arr);
     run_list_recursive(reverse_list_recursive, lista_rec, ans);
     
     free(arr);
